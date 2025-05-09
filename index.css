@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 14% 10%;
+    --foreground: 210 20% 98%;
+    --card: 210 16% 14%;
+    --card-foreground: 210 20% 98%;
+    --popover: 210 16% 14%;
+    --popover-foreground: 210 20% 98%;
+    --primary: 210 100% 50%;
+    --primary-foreground: 210 10% 98%;
+    --secondary: 210 12% 16%;
+    --secondary-foreground: 210 20% 98%;
+    --muted: 210 10% 20%;
+    --muted-foreground: 210 10% 60%;
+    --accent: 210 100% 50%;
+    --accent-foreground: 210 10% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 210 10% 20%;
+    --input: 210 10% 20%;
+    --ring: 210 100% 50%;
+    --radius: 0.5rem;
+
+    --sidebar-background: 210 14% 10%;
+    --sidebar-foreground: 210 20% 98%;
+    --sidebar-primary: 210 100% 50%;
+    --sidebar-primary-foreground: 210 10% 98%;
+    --sidebar-accent: 210 100% 50%;
+    --sidebar-accent-foreground: 210 10% 98%;
+    --sidebar-border: 210 10% 20%;
+    --sidebar-ring: 210 100% 50%;
+
+    --chart-1: 210 100% 50%;
+    --chart-2: 200 100% 50%;
+    --chart-3: 150 80% 50%;
+    --chart-4: 50 80% 50%;
+    --chart-5: 0 80% 60%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .section-fade {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  }
+  
+  .section-fade.appear {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .skill-card {
+    transition: all 0.3s ease;
+  }
+  
+  .skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.1);
+  }
+
+  .project-card {
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+  }
+  
+  .project-card:hover {
+    transform: translateY(-5px);
+    border-color: hsl(var(--primary));
+  }
+
+  .animate-bounce {
+    animation: bounce 2s infinite;
+  }
+
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideUp {
+    0% {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}
